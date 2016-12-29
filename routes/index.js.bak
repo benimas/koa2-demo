@@ -1,0 +1,69 @@
+var router = require('koa-router')();
+const model = require('../model');
+
+router.get('/', async function (ctx, next) {
+    ctx.state = {
+        title: 'koa2 title'
+    };
+    await ctx.render('index', {});
+})
+
+router.get('reg', async function (ctx, next) {
+    ctx.state = {
+        title: 'koa2 title'
+    };
+    await ctx.render('reg', {});
+})
+
+router.get('login', async function (ctx, next) {
+    ctx.state = {
+        title: 'koa2 title'
+    };
+    await ctx.render('login', {});
+})
+
+router.post('login',  async(ctx, next) => {
+    var erpusername = ctx.request.body.inputuser || '',
+        erppassword = ctx.request.body.inputPassword || '';
+
+    console.log(`signin with name: ${erpusername}, password: ${erppassword}.`);
+
+    if (erpusername === 'zas' && erppassword === 'zas') {
+        ctx.response.body = `<h1>Welcome, ${erpusername}!</h1>`;
+    } else {
+        ctx.response.body = `<h1>Login failed!</h1>
+        <p><a href="/">Try again</a></p>`;
+    }
+
+})
+
+router.post('reg', async(ctx, next) => {
+    var username = ctx.request.body.username || '',
+        password = ctx.request.body.password || '',
+        repassword =ctx.request.body.repassword || '';
+    console.log(`signin with name: ${username}, password: ${password},repassword: ${repassword}`);
+
+    var now = Date.now();
+    let Pet = model.Pet;
+    (async () => {
+        var dog = await Pet.create({
+            ownerId: 'd-' + now,
+            name: 'Odie',
+            gender: false,
+            birth: '2008-08-08',
+            createdAt: now,
+            updatedAt: now,
+            version: 0
+        });
+        console.log('created: ' + JSON.stringify(dog));
+    })();
+
+    if (username === 'koa' && password === '12345') {
+        ctx.response.body = `<h1>Welcome, ${username}!</h1>`;
+    } else {
+        ctx.response.body = `<h1>Login failed!</h1>
+        <p><a href="/">Try again</a></p>`;
+    }
+});
+
+module.exports = router;
