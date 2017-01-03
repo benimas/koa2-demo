@@ -2,9 +2,9 @@
 var config = {
     dialect: 'mysql',
     database: 'test',
-    username: 'www',
-    password: 'www',
-    host: 'localhost',
+    username: 'root',
+    password: 'snkkof',
+    host: '192.168.20.171',
     port: 3306
 };
 
