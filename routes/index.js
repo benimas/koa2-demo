@@ -1,3 +1,5 @@
+const Pet = require('../db/models/Pet');
+
 var fn_index = async (ctx, next) => {
     ctx.state = {
         title: 'koa2 title'
@@ -19,6 +21,19 @@ var post_login = async (ctx, next) => {
     console.log(`signin with name: ${erpusername}, password: ${erppassword}.`);
 
     if (erpusername === 'zas' && erppassword === 'zas') {
+        var now = Date.now();
+        (async () => {
+            var dog = await Pet.create({
+                ownerId: 'd-' + now,
+                name: 'Odie',
+                gender: false,
+                birth: '2008-08-08',
+                createdAt: now,
+                updatedAt: now,
+                version: 0
+            });
+            console.log('created: ' + JSON.stringify(dog));
+        })();
         await ctx.render('main', {});
         //ctx.response.body = `<h1>Welcome, ${erpusername}!</h1>`;
     } else {

@@ -26,16 +26,9 @@ app.use(require('koa-static')(__dirname + '/public'));
 app.use(views(__dirname + '/views', {
   extension: 'ejs'
 }));
-//mysql init
-/*
-require('babel-core/register')({
-  presets: ['stage-3']
-});
-*/
-model.sync();
 
-//console.log('init db ok.');
-//process.exit(0);
+//mysql init
+model.sync();
 
 // logger
 app.use(async (ctx, next) => {
