@@ -1,90 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ERP后台管理系统</title>
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
-    <link rel="stylesheet" href="/stylesheets/matrix-style.css" />
-    <link rel="stylesheet" href="/stylesheets/matrix-media.css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap-datetimepicker.min.css" />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="icon" href="favicon.ico" type="image/gif" />
-    <!--[if lt IE 9]>
-<script src="/javascripts/html5shiv.min.js"></script>
-    <script src="/javascripts/respond.min.js"></script>
-    <![endif]-->
-    </head>
-    <body>
-
-    <!--Header-part-->
-    <div id="header">
-    <h1><a href="#">后台管理系统</a></h1>
-    </div>
-    <!--close-Header-part-->
-
-    <!--top-Header-menu-->
-    <div id="user-nav">
-    <ul class="nav">
-
-    <li class=""><a title="" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span><span class="text">后台首页</span></a></li>
-    <li class=""><a title="" href="#"><span class="glyphicon glyphicon-lock" aria-hidden="true"> </span><span class="text">修改密码</span></a></li>
-    <li class=""><a title="" href="login.html"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"> </span><span class="text">退出登录</span></a></li>
-    </ul>
-
-    </div>
-    <!--sidebar-menu-->
-    <div id="sidebar"> <a class="hidden" href="#"><span class="glyphicon glyphicon-list"> </span>系统菜单</a>
-    <ul>
-    <li class="submenu"><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span><span>后台首页</span></a></li>
-    <li class="submenu"><a href="#"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> </span><span>销售管理</span></a>
-    <ul>
-    <li><a href="order_create.html">创建订单</a></li>
-    <li><a href="order_details.html">订单管理</a></li>
-    </ul>
-    </li>
-    <li class="submenu"><a href="#"><span class="glyphicon glyphicon-file" aria-hidden="true"> </span><span>数据导入</span></a>
-    <ul>
-    <li><a href="import_brush.html">刷单登记</a></li>
-    <li><a href="import_check.html">数据验证</a></li>
-    </ul>
-    </li>
-    <li class="submenu"><a href="loading.html"><span class="glyphicon glyphicon-random" aria-hidden="true"> </span><span>加载页面</span></a></li>
-    <li class="submenu"><a href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"> </span><span>Error</span></a>
-    <ul>
-    <li><a href="error_forbidden.html">404</a></li>
-    </ul>
-    </li>
-    <li class="submenu"><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"> </span><span>系统管理</span></a>
-    <ul>
-    <li><a href="role_modify.html">角色管理</a></li>
-    </ul>
-    </li>
-    <li class="submenu"><a href="buttons_alert.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> </span><span>按钮及警告框</span></a></li>
-    <li class="submenu"><a href="modal_form.html"><span class="glyphicon glyphicon-book" aria-hidden="true"> </span><span>模拟框表单</span></a>	</li>
-    <li class="submenu"><a href="bootbox_modal.html"><span class="glyphicon glyphicon-retweet" aria-hidden="true"> </span><span>提示框</span></a></li>
-    <li class="submenu"><a href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"> </span><span>配置管理</span></a>	</li>
-
-    </ul>
-    </div>
-    <!--end-sidebar-menu-->
-
+<% include header.ejs %>
+<% include menu.ejs %>
     <!--containt-part-->
     <div id="content">
     <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span> 首页</a> <a href="#" class="current">表格</a></div>
-    <h1>表格</h1>
     </div>
 
     <!--alert-part-->
+    <!--
     <div class="widget-content alert_padding">
     <div class="alert alert-success">
     <button data-dismiss="alert" class="close">×</button>
-<strong>操作成功!</strong>
-</div>
-</div>
-<!--end-alert-part-->
+    <strong>操作成功!</strong>
+    </div>
+    </div>
+    -->
+    <!--end-alert-part-->
 
 <div class="container-fluid">
 
@@ -141,33 +72,7 @@
     </div>
 
     <div class="row formline">
-    <label for="" class="col-xs-1 formline-label">可编辑：</label>
-<div class="col-xs-3">
-    <div class="editor-slt-box">
-    <input class="editor-input" value="" placeholder="--请选择--">
-    <select class="editor-select">
-    <option>下拉框1</option>
-    <option>下拉框2</option>
-    <option>下拉框3</option>
-    </select>
-    <span class="editor-del"><span class="glyphicon glyphicon-remove"></span></span>
-    </div>
-    </div>
 
-    <label for="" class="col-xs-1 formline-label">Spinner：</label>
-<div class="col-xs-3">
-    <div class="form-spinner">
-    <span class="ui-widget-content">
-    <input name="value" class="mynum-input" type="text" value="">
-    <a class="ui-spinner-button mynum-up">
-    <span class="ui-icon">▲</span>
-</a>
-<a class="ui-spinner-button mynum-down">
-    <span class="ui-icon">▼</span>
-</a>
-</span>
-</div>
-</div>
 <div class="col-xs-4">
     </div>
     </div>
@@ -306,41 +211,8 @@
     </ul>
     </nav>
     </div>
-
-
     </div>
-
     </div>
     </div>
     <!--end-containt-part-->
-
-
-    <!--Footer-part-->
-    <div class="row-fluid">
-    <div id="footer" class="span12"> Copyright &copy; Goonic All rights reserved.</div>
-</div>
-<!--end-Footer-part-->
-<script src="/javascripts/jquery.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script src="/javascripts/matrix.js"></script>
-    <script src="/javascripts/jquery.dataTables.min.js"></script>
-    <script src="/javascripts/matrix.tables.js"></script>
-
-    <script src="/javascripts/bootstrap-datetimepicker.js"></script>
-    <script src="/javascripts/bootstrap-datetimepicker.zh-CN.js"></script>
-
-    <script type="text/javascript">
-    $('.form_date').datetimepicker({
-        language: 'zh-CN',
-        weekStart: 1,
-        todayBtn: 1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        minView: 2,
-        forceParse: 0
-    });
-</script>
-
-</body>
-</html>
+<% include footer.ejs %>
