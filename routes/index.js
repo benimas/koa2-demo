@@ -1,4 +1,5 @@
 const Pet = require('../db/models/Pet');
+const Item = require('../db/models/Item');
 
 var fn_index = async (ctx, next) => {
     ctx.state = {
@@ -21,6 +22,22 @@ var post_login = async (ctx, next) => {
     console.log(`signin with name: ${erpusername}, password: ${erppassword}.`);
 
     if (erpusername === 'zas' && erppassword === 'zas') {
+        var itemdata = await Item.findAll({
+            where: {
+                id: '09'
+            }
+        });
+        (async () => {
+
+            console.log(`find ${itemdata.length} pets:`);
+            for (let i of itemdata) {
+                console.log(JSON.stringify(i));
+            }
+        })();
+            //await ctx.render('main', {});
+            await ctx.render('main', { Item: itemdata });
+
+        /*
         var now = Date.now();
         (async () => {
             var dog = await Pet.create({
@@ -36,6 +53,7 @@ var post_login = async (ctx, next) => {
         })();
         await ctx.render('main', {});
         //ctx.response.body = `<h1>Welcome, ${erpusername}!</h1>`;
+        */
     } else {
         ctx.response.body = `<h1>Login failed!</h1>
         <p><a href="/">Try again</a></p>`;
