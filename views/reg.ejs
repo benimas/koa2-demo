@@ -1,12 +1,26 @@
 <% include header.ejs %>
-<form class="form-horizontal" method="post" >
-    <fieldset>
+<% include menu.ejs %>
+<!--containt-part-->
+<form method="post" >
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span> 首页</a> <a href="#" class="current">注册新用户</a></div>
+    </div>
+
+    <div class="container-fluid">
         <legend> 用户注册</legend>
         <div class="control-group">
             <label  class="control-label" for="username"> 用户名</label>
             <div class="controls">
                 <input  type="text" class="input-xlarge" id="username" name="username" >
                 <p class="help-block"> 你的账户名称，用于登录和显示。</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label  class="control-label" for="username"> 邮件</label>
+            <div class="controls">
+                <input  type="text" class="input-xlarge" id="email" name="email" >
+                <p class="help-block"> 你的邮件地址用于找回密码。</p>
             </div>
         </div>
         <div class="control-group">
@@ -25,6 +39,8 @@
         <div class="form-actions" >
             <button type="submit" class="btn btn-primary" > 注册</button>
         </div>
-    </fieldset>
-</form>
+    </div>
+</div>
+    </form>
+<!--end-containt-part-->
 <% include footer.ejs %>
